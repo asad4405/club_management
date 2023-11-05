@@ -13,7 +13,6 @@
     <link rel="icon" href="{{ asset('backend_assets') }}/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('backend_assets') }}/images/favicon.png" type="image/x-icon">
     <title>Fastkart - Dashboard</title>
-
     <!-- Google font-->
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -34,15 +33,23 @@
     <!-- remixicon css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/remixicon.css">
 
+    <!-- Data Table css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/datatables.css">
+
     <!-- Feather icon css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/feather-icon.css">
 
     <!-- Plugins css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/scrollbar.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/chartist.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/date-picker.css">
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/bootstrap.css">
+
+    <!-- Bootstrap-tag input css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/bootstrap-tagsinput.css">
 
     <!-- vector map css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vector-map.css">
@@ -52,6 +59,18 @@
 
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/style.css">
+
+    <!--Dropzon css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/vendors/dropzone.css">
+
+    <!-- Select2 css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets') }}/css/select2.min.css">
+
+    <!-- Selectize -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+        integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -410,7 +429,6 @@
         </div>
     </div>
     <!-- Modal End -->
-
     <!-- latest js -->
     <script src="{{ asset('backend_assets') }}/js/jquery-3.6.0.min.js"></script>
 
@@ -425,6 +443,10 @@
     <script src="{{ asset('backend_assets') }}/js/scrollbar/simplebar.js"></script>
     <script src="{{ asset('backend_assets') }}/js/scrollbar/custom.js"></script>
 
+    <!-- bootstrap tag-input js -->
+    <script src="{{ asset('backend_assets') }}/js/bootstrap-tagsinput.min.js"></script>
+    <script src="{{ asset('backend_assets') }}/js/sidebar-menu.js"></script>
+
     <!-- Sidebar jquery -->
     <script src="{{ asset('backend_assets') }}/js/config.js"></script>
 
@@ -432,7 +454,7 @@
     <script src="{{ asset('backend_assets') }}/js/tooltip-init.js"></script>
 
     <!-- Plugins JS -->
-    <script src="{{ asset('backend_assets') }}/js/sidebar-menu.js"></script>
+    {{-- <script src="{{ asset('backend_assets') }}/js/sidebar-menu.js"></script> --}}
     <script src="{{ asset('backend_assets') }}/js/notify/bootstrap-notify.min.js"></script>
     <script src="{{ asset('backend_assets') }}/js/notify/index.js"></script>
 
@@ -459,6 +481,28 @@
 
     <!-- Theme js -->
     <script src="{{ asset('backend_assets') }}/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Dropzon js -->
+    <script src="{{ asset('backend_assets') }}/js/dropzone/dropzone.js"></script>
+    <script src="{{ asset('backend_assets') }}/js/dropzone/dropzone-script.js"></script>
+
+    <!-- ck editor js -->
+    <script src="{{ asset('backend_assets') }}/js/ckeditor.js"></script>
+    <script src="{{ asset('backend_assets') }}/js/ckeditor-custom.js"></script>
+
+    <!-- select2 js -->
+    <script src="{{ asset('backend_assets') }}/js/select2.min.js"></script>
+    <script src="{{ asset('backend_assets') }}/js/select2-custom.js"></script>
+
+    <!-- Data table js -->
+    <script src="{{ asset('backend_assets') }}/js/jquery.dataTables.js"></script>
+    <script src="{{ asset('backend_assets') }}/js/custom-data-table.js"></script>
+
+    <!-- selectize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+        integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
