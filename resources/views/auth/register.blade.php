@@ -1,3 +1,19 @@
+{{-- @extends('layouts.frontend_master')
+@section('content')
+    <div class="my-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>sldf</h3>
+                </div>
+                <div class="card-body"></div>
+            </div>
+        </div>
+    </div>
+@endsection --}}
+
+
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
