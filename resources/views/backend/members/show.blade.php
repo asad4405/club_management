@@ -20,7 +20,7 @@
 
                                     <tbody>
                                         <tr>
-                                            <td>Invoice ID</td>
+                                            <td>Member ID</td>
                                             <td>#{{ $member->id }}</td>
                                         </tr>
                                         <tr>

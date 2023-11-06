@@ -1,21 +1,3 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}
-
 @extends('layouts.backend_master')
 @section('content')
     <div class="container-fluid">
@@ -26,14 +8,13 @@
                     <div class="custome-1-bg b-r-4 card-body">
                         <div class="media align-items-center static-top-widget">
                             <div class="media-body p-0">
-                                <span class="m-0">Total Revenue</span>
-                                <h4 class="mb-0 counter">$6659
-                                    <span class="badge badge-light-primary grow">
-                                        <i data-feather="trending-up"></i>8.5%</span>
+                                <span class="m-0">Total Members</span>
+                                <h4 class="mb-0 counter">
+                                    {{ $members->count() }}
                                 </h4>
                             </div>
                             <div class="align-self-center text-center">
-                                <i class="ri-database-2-line"></i>
+                                <i class="fa fa-users"></i>
                             </div>
                         </div>
                     </div>
@@ -45,10 +26,8 @@
                     <div class="custome-2-bg b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="media-body p-0">
-                                <span class="m-0">Total Orders</span>
+                                <span class="m-0">Total Donation</span>
                                 <h4 class="mb-0 counter">9856
-                                    <span class="badge badge-light-danger grow">
-                                        <i data-feather="trending-down"></i>8.5%</span>
                                 </h4>
                             </div>
                             <div class="align-self-center text-center">
@@ -64,10 +43,10 @@
                     <div class="custome-3-bg b-r-4 card-body">
                         <div class="media static-top-widget">
                             <div class="media-body p-0">
-                                <span class="m-0">Total Products</span>
+                                <span class="m-0">Total Donation Amount</span>
                                 <h4 class="mb-0 counter">893
-                                    <a href="add-new-product.html" class="badge badge-light-secondary grow">
-                                        ADD NEW</a>
+                                    {{-- <a href="add-new-product.html" class="badge badge-light-secondary grow">
+                                        ADD NEW</a> --}}
                                 </h4>
                             </div>
 
@@ -99,6 +78,67 @@
                 </div>
             </div>
 
+            <!-- last 5 donation transactions start-->
+            <div class="col-xxl-12">
+                <div class="card o-hidden card-hover">
+                    <div class="card-header card-header-top card-header--2 px-0 pt-0">
+                        <div class="card-header-title">
+                            <h4>Last 5 Donation Transactions</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div>
+                            <div class="table-responsive">
+                                <table class="best-selling-table table border-0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="best-product-box">
+                                                    <div class="product-name">
+                                                        <h5>Aata Buscuit</h5>
+                                                        <h6>#64548</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="product-detail-box">
+                                                    <h6>Date Placed</h6>
+                                                    <h5>5/1/22</h5>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="product-detail-box">
+                                                    <h6>Price</h6>
+                                                    <h5>$250.00</h5>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="product-detail-box">
+                                                    <h6>Order Status</h6>
+                                                    <h5>Completed</h5>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="product-detail-box">
+                                                    <h6>Payment</h6>
+                                                    <h5 class="text-danger">Unpaid</h5>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- last 5 donation transactions end-->
+
             <div class="col-12">
                 <div class="card o-hidden card-hover">
                     <div class="card-header border-0 pb-1">
@@ -111,7 +151,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Vegetables & Fruit</h6>
@@ -122,7 +163,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Beverages</h6>
@@ -133,7 +175,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Meats & Seafood</h6>
@@ -144,7 +187,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Breakfast</h6>
@@ -155,7 +199,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Frozen Foods</h6>
@@ -166,7 +211,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Milk & Dairies</h6>
@@ -177,7 +223,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Pet Food</h6>
@@ -188,7 +235,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Vegetables & Fruit</h6>
@@ -199,7 +247,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Beverages</h6>
@@ -210,7 +259,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Meats & Seafood</h6>
@@ -221,7 +271,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Breakfast</h6>
@@ -232,7 +283,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Frozen Foods</h6>
@@ -243,7 +295,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Milk & Dairies</h6>
@@ -254,7 +307,8 @@
                             <div>
                                 <div class="dashboard-category">
                                     <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid" alt="">
+                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid"
+                                            alt="">
                                     </a>
                                     <a href="javascript:void(0)" class="category-name">
                                         <h6>Pet Food</h6>
@@ -266,6 +320,7 @@
                 </div>
             </div>
             <!-- chart card section End -->
+
 
             <!-- Earning chart star-->
             <div class="col-xl-6">
@@ -317,8 +372,8 @@
                                             <td>
                                                 <div class="best-product-box">
                                                     <div class="product-image">
-                                                        <img src="{{ asset('backend_assets') }}/images/product/1.png" class="img-fluid"
-                                                            alt="Product">
+                                                        <img src="{{ asset('backend_assets') }}/images/product/1.png"
+                                                            class="img-fluid" alt="Product">
                                                     </div>
                                                     <div class="product-name">
                                                         <h5>Aata Buscuit</h5>
@@ -360,8 +415,8 @@
                                             <td>
                                                 <div class="best-product-box">
                                                     <div class="product-image">
-                                                        <img src="{{ asset('backend_assets') }}/images/product/2.png" class="img-fluid"
-                                                            alt="Product">
+                                                        <img src="{{ asset('backend_assets') }}/images/product/2.png"
+                                                            class="img-fluid" alt="Product">
                                                     </div>
                                                     <div class="product-name">
                                                         <h5>Aata Buscuit</h5>
@@ -403,8 +458,8 @@
                                             <td>
                                                 <div class="best-product-box">
                                                     <div class="product-image">
-                                                        <img src="{{ asset('backend_assets') }}/images/product/3.png" class="img-fluid"
-                                                            alt="Product">
+                                                        <img src="{{ asset('backend_assets') }}/images/product/3.png"
+                                                            class="img-fluid" alt="Product">
                                                     </div>
                                                     <div class="product-name">
                                                         <h5>Aata Buscuit</h5>

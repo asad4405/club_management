@@ -278,15 +278,15 @@
                                 <li class="sidebar-list">
                                     <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
                                         <i class="ri-list-check-2"></i>
-                                        <span>Category</span>
+                                        <span>Donation</span>
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="category.html">Category List</a>
+                                            <a href="{{ route('donation.create') }}">Add Donation</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-category.html">Add New Category</a>
+                                            <a href="{{ route('donation.index') }}">Donation List</a>
                                         </li>
                                     </ul>
                                 </li>

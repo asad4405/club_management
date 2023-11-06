@@ -10,7 +10,7 @@
                             <div class="right-options">
                                 <ul>
                                     <li>
-                                        <a class="btn btn-solid" href="{{ route('member.create') }}">Add New Member</a>
+                                        <a class="btn btn-solid" href="{{ route('donation.create') }}">Add Donation</a>
                                     </li>
                                 </ul>
                             </div>
@@ -25,56 +25,61 @@
                                 <table class="table all-package theme-table table-product" id="table_id">
                                     <thead>
                                         <tr>
+                                            <th>Transaction ID</th>
                                             <th>Member ID</th>
-                                            <th>Member Photo</th>
-                                            <th>Member Name</th>
-                                            <th>Father's Name</th>
-                                            <th>Mother's Name</th>
-                                            <th>Blood Group</th>
+                                            <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Donation Amount</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($members as $member)
+                                        @foreach ($donations as $donation)
                                             <tr>
-                                                <td>#{{ $member->id }}</td>
+                                                <td>#{{ $donation->id }}</td>
+
                                                 <td>
-                                                    <div class="table-image">
-                                                        <img src="assets/images/product/1.png" class="img-fluid"
-                                                            alt="">
-                                                    </div>
+                                                    @if ($donation->club_member == 'yes')
+                                                        #{{ $donation->name }}
+                                                    @else
+                                                        Not Club Member
+                                                    @endif
                                                 </td>
 
-                                                <td>{{ $member->name }}</td>
+                                                <td>
+                                                    @if ($donation->club_member == 'yes')
+                                                        {{ App\Models\Member::find($donation->name)->name }}
+                                                    @else
+                                                        {{ $donation->name }}
+                                                    @endif
+                                                </td>
+                                                <td>{{ $donation->date }}</td>
 
-                                                <td>{{ $member->father_name }}</td>
-
-                                                <td>{{ $member->mother_name }}</td>
-
-                                                <td class="text-danger">{{ $member->blood_group }}</td>
+                                                <td>{{ $donation->donation_amount }} taka</td>
 
                                                 <td>
                                                     <ul>
                                                         <li>
-                                                            <a href="{{ route('member.show', $member->id) }}"
+                                                            <a href="{{ route('download.donation_invoice', $donation->id) }}"
                                                                 class="btn btn-sm btn-primary">
-                                                                Show
+                                                                Download
                                                             </a>
                                                         </li>
 
                                                         <li>
-                                                            <a href="{{ route('member.edit', $member->id) }}"
-                                                                class="btn btn-sm btn-info">
+                                                            <a href="" class="btn btn-sm btn-info">
                                                                 Edit
                                                             </a>
                                                         </li>
 
                                                         <li>
-                                                            <form action="{{ route('member.destroy', $member->id) }}" method="POST">
+                                                            <form action="{{ route('donation.destroy', $donation->id) }}"
+                                                                method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="btn btn-sm btn-secondary">Delete</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-sm btn-secondary">Delete</button>
                                                             </form>
                                                         </li>
                                                     </ul>
