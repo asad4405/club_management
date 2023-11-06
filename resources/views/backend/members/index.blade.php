@@ -15,6 +15,11 @@
                                 </ul>
                             </div>
                         </div>
+
+                        @if (session('member-update-success'))
+                            <div class="alert alert-success">{{ session('member-update-success') }}</div>
+                        @endif
+
                         <div>
                             <div class="table-responsive">
                                 <table class="table all-package theme-table table-product" id="table_id">
@@ -41,7 +46,7 @@
                                                     </div>
                                                 </td>
 
-                                                <td>{{ $member->english_name }}</td>
+                                                <td>{{ $member->name }}</td>
 
                                                 <td>{{ $member->father_name }}</td>
 
@@ -52,13 +57,15 @@
                                                 <td>
                                                     <ul>
                                                         <li>
-                                                            <a href="{{ route('member.show',$member->id) }}" class="btn btn-sm btn-primary">
+                                                            <a href="{{ route('member.show', $member->id) }}"
+                                                                class="btn btn-sm btn-primary">
                                                                 Show
                                                             </a>
                                                         </li>
 
                                                         <li>
-                                                            <a href="" class="btn btn-sm btn-info">
+                                                            <a href="{{ route('member.edit', $member->id) }}"
+                                                                class="btn btn-sm btn-info">
                                                                 Edit
                                                             </a>
                                                         </li>

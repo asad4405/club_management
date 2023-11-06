@@ -16,7 +16,7 @@ class MemberController extends Controller
     public function index()
     {
         $members = Member::all();
-        return view('backend.members.index',compact('members'));
+        return view('backend.members.index', compact('members'));
     }
 
     /**
@@ -34,21 +34,20 @@ class MemberController extends Controller
     {
         $request->validate([
             '*' => 'required',
+            // 'member_photo' => 'required|file|mimes:png,jpg,jpeg',
         ]);
 
         // photo upload start
-        return $member_photo = 'Member_' . date('d_m_Y_'). Str::random(5). '.'. $request->file('member_photo')->getClientOriginalExtension();
-        // return $member_photo = 'Member_' . date('d_m_Y_') . Str::random(5) . '.' . $request->file('member_photo')->getClientOriginalExtension();
-        // Image::make($request->file('member_photo'))->save(base_path('public/uploads/members_photo/' . $member_photo));
 
-        $member_signature = 'Member_signature_' . date('d_m_Y_') . Str::random(5) . '.' . $request->file('member_signature')->getClientOriginalExtension();
-        // Image::make($request->file('member_signature'))->save(base_path('public/uploads/members_signature/' . $member_signature));
+        // $member_photo = 'Member_' . date('d_m_Y_') . Str::random(5) . '.' . $request->file('member_photo')->getClientOriginalExtension();
+        // Image::make($request->file('member_photo'))->save(base_path('public/uploads/member_photo/' . $member_photo));
 
         Member::insert([
-            'bangla_name' => $request->bangla_name,
-            'english_name' => $request->english_name,
+            'name' => $request->name,
             'father_name' => $request->father_name,
             'mother_name' => $request->mother_name,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
             'date_of_birth' => $request->date_of_birth,
             'present_address' => $request->present_address,
             'permanent_address' => $request->permanent_address,
@@ -60,12 +59,11 @@ class MemberController extends Controller
             'education' => $request->education,
             'donation_amount_numbers' => $request->donation_amount_numbers,
             'donation_amount_words' => $request->donation_amount_words,
-            'member_photo' => $member_photo,
-            'member_signature' => $member_signature,
+            // 'member_photo' => $member_photo,
             'created_at' => Carbon::now(),
         ]);
 
-        return back()->with('add-member-success','New Member Added Successfull!');
+        return back()->with('add-member-success', 'New Member Added Successfull!');
     }
 
     /**
@@ -73,7 +71,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        return view('backend.members.show',compact('member'));
+        return view('backend.members.show', compact('member'));
     }
 
     /**
@@ -81,7 +79,7 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        return view('backend.members.edit', compact('member'));
     }
 
     /**
@@ -89,7 +87,25 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        $member->name = $request->name;
+        $member->father_name = $request->father_name;
+        $member->mother_name = $request->mother_name;
+        $member->phone_number = $request->phone_number;
+        $member->email = $request->email;
+        $member->date_of_birth = $request->date_of_birth;
+        $member->present_address = $request->present_address;
+        $member->permanent_address = $request->permanent_address;
+        $member->id_no = $request->id_no;
+        $member->nationality = $request->nationality;
+        $member->religion = $request->religion;
+        $member->profession = $request->profession;
+        $member->blood_group = $request->blood_group;
+        $member->education = $request->education;
+        $member->donation_amount_numbers = $request->donation_amount_numbers;
+        $member->donation_amount_words = $request->donation_amount_words;
+        $member->created_at = Carbon::now();
+        $member->save();
+        return redirect('member')->with('member-update-success','Member Update Successfull!');
     }
 
     /**

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('bangla_name');
-            $table->string('english_name');
+            $table->string('name');
             $table->string('father_name');
             $table->string('mother_name');
+            $table->string('phone_number')->unique();
+            $table->string('email')->unique();
             $table->date('date_of_birth');
             $table->text('present_address');
             $table->text('permanent_address');
@@ -28,8 +29,7 @@ return new class extends Migration
             $table->string('education');
             $table->string('donation_amount_numbers');
             $table->string('donation_amount_words');
-            $table->string('member_photo');
-            $table->string('member_signature');
+            // $table->string('member_photo');
             $table->timestamps();
         });
     }
