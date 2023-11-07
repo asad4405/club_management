@@ -29,8 +29,8 @@
                                             <th>Member ID</th>
                                             <th>Name</th>
                                             <th>Date</th>
-                                            <th>Address</th>
                                             <th>Donation Amount</th>
+                                            <th>Address</th>
                                             <th>Option</th>
                                         </tr>
                                     </thead>
@@ -55,23 +55,23 @@
                                                         {{ $donation->name }}
                                                     @endif
                                                 </td>
-                                                <td>{{ $donation->created_at }}</td>
+                                                <td>{{ $donation->created_at->format('d-m-Y h:i:s A') }}</td>
 
                                                 <td>{{ $donation->donation_amount }} taka</td>
 
-                                                <td>{{ $donation->donation_amount }} taka</td>
+                                                <td>{{ $donation->address }} taka</td>
 
                                                 <td>
                                                     <ul>
                                                         <li>
                                                             <a href="{{ route('download.donation_invoice', $donation->id) }}"
-                                                                class="btn btn-sm btn-primary">
+                                                                class="btn btn-sm btn-info">
                                                                 Download
                                                             </a>
                                                         </li>
 
-                                                        <li>
-                                                            <a href="" class="btn btn-sm btn-info">
+                                                        {{-- <li>
+                                                            <a href="{{ route('donation.edit',$donation->id) }}" class="btn btn-sm btn-info">
                                                                 Edit
                                                             </a>
                                                         </li>
@@ -84,7 +84,7 @@
                                                                 <button type="submit"
                                                                     class="btn btn-sm btn-secondary">Delete</button>
                                                             </form>
-                                                        </li>
+                                                        </li> --}}
                                                     </ul>
                                                 </td>
                                             </tr>

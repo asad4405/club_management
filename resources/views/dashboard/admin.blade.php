@@ -27,6 +27,81 @@
                         <div class="media static-top-widget">
                             <div class="media-body p-0">
                                 <span class="m-0">Total Donation</span>
+                                <h4 class="mb-0 counter">
+                                    {{ $donations->count() }}
+                                </h4>
+                            </div>
+                            <div class="align-self-center text-center">
+                                <i class="ri-shopping-bag-3-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="main-tiles border-5 card-hover border-0  card o-hidden">
+                    <div class="custome-3-bg b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Total Donation Amount</span>
+                                <h4 class="mb-0 counter">
+                                    {{ $donations->sum('donation_amount') }}
+                                </h4>
+                            </div>
+
+                            <div class="align-self-center text-center">
+                                <i class="ri-chat-3-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="main-tiles border-5 card-hover border-0 card o-hidden">
+                    <div class="custome-4-bg b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Total Customers</span>
+                                <h4 class="mb-0 counter">4.6k
+                                    <span class="badge badge-light-success grow">
+                                        <i data-feather="trending-down"></i>8.5%</span>
+                                </h4>
+                            </div>
+
+                            <div class="align-self-center text-center">
+                                <i class="ri-user-add-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="main-tiles border-5 border-0  card-hover card o-hidden">
+                    <div class="custome-1-bg b-r-4 card-body">
+                        <div class="media align-items-center static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Total Members</span>
+                                <h4 class="mb-0 counter">
+                                    {{ $members->count() }}
+                                </h4>
+                            </div>
+                            <div class="align-self-center text-center">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="main-tiles border-5 card-hover border-0 card o-hidden">
+                    <div class="custome-2-bg b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Total Donation</span>
                                 <h4 class="mb-0 counter">9856
                                 </h4>
                             </div>
@@ -78,12 +153,12 @@
                 </div>
             </div>
 
-            <!-- last 5 donation transactions start-->
+            <!-- lastest donation transactions start-->
             <div class="col-xxl-12">
                 <div class="card o-hidden card-hover">
                     <div class="card-header card-header-top card-header--2 px-0 pt-0">
                         <div class="card-header-title">
-                            <h4>Last 5 Donation Transactions</h4>
+                            <h4>Lastest Donation Transactions</h4>
                         </div>
                     </div>
 
@@ -92,44 +167,57 @@
                             <div class="table-responsive">
                                 <table class="best-selling-table table border-0">
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="best-product-box">
-                                                    <div class="product-name">
-                                                        <h5>Aata Buscuit</h5>
-                                                        <h6>#64548</h6>
+                                        @forelse ($donations as $donation)
+                                            <tr>
+                                                <td>
+                                                    <div class="best-product-box">
+                                                        <div class="product-name">
+                                                            <h6>Transaction ID</h6>
+                                                            <h5>#{{ $donation->id }}</h5>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
 
-                                            <td>
-                                                <div class="product-detail-box">
-                                                    <h6>Date Placed</h6>
-                                                    <h5>5/1/22</h5>
-                                                </div>
-                                            </td>
+                                                <td>
+                                                    <div class="product-detail-box">
+                                                        <h6>Name</h6>
+                                                        <h5>{{ $donation->name }}</h5>
+                                                    </div>
+                                                </td>
 
-                                            <td>
-                                                <div class="product-detail-box">
-                                                    <h6>Price</h6>
-                                                    <h5>$250.00</h5>
-                                                </div>
-                                            </td>
+                                                <td>
+                                                    <div class="product-detail-box">
+                                                        <h6>Email</h6>
+                                                        <h5>{{ $donation->email }}</h5>
+                                                    </div>
+                                                </td>
 
-                                            <td>
-                                                <div class="product-detail-box">
-                                                    <h6>Order Status</h6>
-                                                    <h5>Completed</h5>
-                                                </div>
-                                            </td>
+                                                <td>
+                                                    <div class="product-detail-box">
+                                                        <h6>Donation Amount</h6>
+                                                        <h5>{{ $donation->donation_amount }}</h5>
+                                                    </div>
+                                                </td>
 
-                                            <td>
-                                                <div class="product-detail-box">
-                                                    <h6>Payment</h6>
-                                                    <h5 class="text-danger">Unpaid</h5>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                <td>
+                                                    <div class="product-detail-box">
+                                                        <h6>Date</h6>
+                                                        <h5>{{ $donation->created_at->format('d-m-Y h:i:s A') }}</h5>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="product-detail-box">
+                                                        <h6>Address</h6>
+                                                        <h5>{{ $donation->address }}</h5>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-danger">No Transaction Available !</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -137,190 +225,7 @@
                     </div>
                 </div>
             </div>
-            <!-- last 5 donation transactions end-->
-
-            <div class="col-12">
-                <div class="card o-hidden card-hover">
-                    <div class="card-header border-0 pb-1">
-                        <div class="card-header-title p-0">
-                            <h4>Category</h4>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="category-slider no-arrow">
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Vegetables & Fruit</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Beverages</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Meats & Seafood</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Breakfast</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Frozen Foods</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Milk & Dairies</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Pet Food</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/vegetable.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Vegetables & Fruit</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/cup.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Beverages</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/meats.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Meats & Seafood</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/breakfast.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Breakfast</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/frozen.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Frozen Foods</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/milk.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Milk & Dairies</h6>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="dashboard-category">
-                                    <a href="javascript:void(0)" class="category-image">
-                                        <img src="{{ asset('backend_assets') }}/svg/pet.svg" class="img-fluid"
-                                            alt="">
-                                    </a>
-                                    <a href="javascript:void(0)" class="category-name">
-                                        <h6>Pet Food</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- chart card section End -->
-
+            <!-- lastest donation transactions end-->
 
             <!-- Earning chart star-->
             <div class="col-xl-6">

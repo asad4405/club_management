@@ -276,8 +276,7 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <h4>Chalkbeltoil,Nandina,Jamalpur
-                                    </h4>
+                                    <h4>{{ $donation->address }}</h4>
                                 </td>
                             </tr>
                         </tbody>

@@ -44,7 +44,7 @@
                                         <div class="col-sm-9">
                                             <select name="donation_reason" id="" class="form-select">
                                                 <option value="">Select Donation Reason</option>
-                                                <option value="">Club</option>
+                                                <option value="club">Club</option>
                                             </select>
                                             @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -140,7 +140,7 @@
                                         <div class="col-sm-9">
                                             <select name="donation_reason" id="" class="form-select">
                                                 <option value="">Select Donation Reason</option>
-                                                <option value="">Club</option>
+                                                <option value="club">Club</option>
                                             </select>
                                             @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
