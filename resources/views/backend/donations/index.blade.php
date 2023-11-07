@@ -29,6 +29,7 @@
                                             <th>Member ID</th>
                                             <th>Name</th>
                                             <th>Date</th>
+                                            <th>Address</th>
                                             <th>Donation Amount</th>
                                             <th>Option</th>
                                         </tr>
@@ -54,7 +55,9 @@
                                                         {{ $donation->name }}
                                                     @endif
                                                 </td>
-                                                <td>{{ $donation->date }}</td>
+                                                <td>{{ $donation->created_at }}</td>
+
+                                                <td>{{ $donation->donation_amount }} taka</td>
 
                                                 <td>{{ $donation->donation_amount }} taka</td>
 

@@ -38,8 +38,9 @@ class DonationController extends Controller
         ]);
         Donation::insert([
             'name' => $request->name,
-            'date' => $request->date,
+            'donation_reason' => $request->donation_reason,
             'donation_amount' => $request->donation_amount,
+            'address' => $request->address,
             'email' => $request->email,
             'club_member' => $request->club_member,
             'created_at' => Carbon::now(),

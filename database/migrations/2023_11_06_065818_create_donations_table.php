@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('date');
+            $table->string('donation_reason');
             $table->string('donation_amount');
+            $table->text('address');
             $table->string('email');
             $table->string('club_member');
             $table->timestamps();

@@ -40,10 +40,13 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            Date</label>
+                                            Donation Reason</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" name="date">
-                                            @error('date')
+                                            <select name="donation_reason" id="" class="form-select">
+                                                <option value="">Select Donation Reason</option>
+                                                <option value="">Club</option>
+                                            </select>
+                                            @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -63,9 +66,20 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            Email Address</label>
+                                            Address </label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" name="email" placeholder="Email Address">
+                                            <input type="text" class="form-control" name="address" placeholder="Address">
+                                            @error('address')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-3 mb-0">
+                                            Email </label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" placeholder="Email">
                                             @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -122,10 +136,13 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            Date</label>
+                                            Donation Reason</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" name="date">
-                                            @error('date')
+                                            <select name="donation_reason" id="" class="form-select">
+                                                <option value="">Select Donation Reason</option>
+                                                <option value="">Club</option>
+                                            </select>
+                                            @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -145,9 +162,20 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            Email Address</label>
+                                            Address </label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" name="email" placeholder="Email Address">
+                                            <input type="text" class="form-control" name="address" placeholder="Address">
+                                            @error('address')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-3 mb-0">
+                                            Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" placeholder="Email">
                                             @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
