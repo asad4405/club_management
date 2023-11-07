@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cost;
 use App\Models\Donation;
 use App\Models\Member;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class HomeController extends Controller
     {
         $members = Member::all();
         $donations = Donation::latest()->get();
-        return view('dashboard.admin',compact('members','donations'));
+        $costs = Cost::all();
+        return view('dashboard.admin',compact('members','donations','costs'));
     }
 }

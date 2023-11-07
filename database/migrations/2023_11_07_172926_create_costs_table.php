@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('costs', function (Blueprint $table) {
             $table->id();
+            $table->string('cost_reason');
+            $table->string('cost_amount');
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CostController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -19,6 +20,9 @@ Route::resource('/member', MemberController::class);
 
 // donations //
 Route::resource('/donation', DonationController::class);
+
+// costs //
+Route::resource('/cost',CostController::class);
 
 // donation invoice //
 Route::get('/download/donation/invoice/{id}', [DonationController::class, 'download_donation_invoice'])->name('download.donation_invoice');
