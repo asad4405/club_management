@@ -29,7 +29,8 @@
                                             <select class="js-example-basic-single w-100" name="name">
                                                 <option value="">Select Members</option>
                                                 @foreach ($members as $member)
-                                                    <option value="{{ $member->id }}">#{{ $member->id }}. {{ $member->name }}</option>
+                                                    <option value="{{ $member->id }}">#{{ $member->id }}.
+                                                        {{ $member->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('name')
@@ -42,10 +43,8 @@
                                         <label class="form-label-title col-sm-3 mb-0">
                                             Donation Reason</label>
                                         <div class="col-sm-9">
-                                            <select name="donation_reason" id="" class="form-select">
-                                                <option value="">Select Donation Reason</option>
-                                                <option value="club">Club</option>
-                                            </select>
+                                            <input type="text" class="form-control" name="donation_reason"
+                                                placeholder="Donation Reason">
                                             @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -138,10 +137,8 @@
                                         <label class="form-label-title col-sm-3 mb-0">
                                             Donation Reason</label>
                                         <div class="col-sm-9">
-                                            <select name="donation_reason" id="" class="form-select">
-                                                <option value="">Select Donation Reason</option>
-                                                <option value="club">Club</option>
-                                            </select>
+                                            <input type="text" class="form-control" name="donation_reason"
+                                                placeholder="Donation Reason">
                                             @error('donation_reason')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -164,7 +161,8 @@
                                         <label class="form-label-title col-sm-3 mb-0">
                                             Address </label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="address" placeholder="Address">
+                                            <input type="text" class="form-control" name="address"
+                                                placeholder="Address">
                                             @error('address')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -175,7 +173,8 @@
                                         <label class="form-label-title col-sm-3 mb-0">
                                             Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" name="email" placeholder="Email">
+                                            <input type="email" class="form-control" name="email"
+                                                placeholder="Email">
                                             @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror

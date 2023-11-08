@@ -179,9 +179,9 @@
                 <div id="sidebarEffect"></div>
                 <div>
                     <div class="logo-wrapper logo-wrapper-center">
-                        <a href="{{ route('index') }}" data-bs-original-title="" title="">
+                        <a href="{{ route('dashboard') }}" data-bs-original-title="" title="">
                             <img class="img-fluid for-white"
-                                src="{{ asset('backend_assets') }}/images/logo/full-white.png" alt="logo">
+                                src="{{ asset('backend_assets') }}/images/logo/club_logo.png" alt="logo">
                         </a>
                         <div class="back-btn">
                             <i class="fa fa-angle-left"></i>

@@ -231,7 +231,7 @@
 
         <div class="receipt_header">
             <h1>Receipt of Donation <span>Young Star Club</span></h1>
-            <h2>Address: Chalkbeltoil,Nandina,Jamalpur <span>Email: youngstarclub@gmail.com</span></h2>
+            <h2>Address: Chalkbeltoil,Nandina,Jamalpur <span>youngstarclub26.05.2016@gmail.com</span></h2>
         </div>
 
         <div class="receipt_body">
@@ -271,6 +271,14 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <h4>Donation:</h4>
+                                </td>
+                                <td>
+                                    <h4>{{ $donation->donation_reason }}</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <br>
                                     <h4>Address:</h4>
                                 </td>
@@ -290,7 +298,7 @@
                                     </mark>
                                 </td>
                                 <td>
-                                    <mark><h4>1000 taka</h4></mark>
+                                    <mark><h4>{{ $donation->donation_amount }} taka</h4></mark>
                                 </td>
                             </tr>
                             </tr>
@@ -305,7 +313,7 @@
 
         <h3>Thank You!</h3>
         <br><br>
-        <p style="text-align: right">developed by Asad</p>
+        <p style="text-align: right">Developed by Asad</p>
     </div>
 
 </body>

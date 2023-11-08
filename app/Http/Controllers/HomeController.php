@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function dashboard ()
     {
-        $members = Member::all();
+        $members = Member::latest()->get();
         $donations = Donation::latest()->get();
-        $costs = Cost::all();
+        $costs = Cost::latest()->get();
         return view('dashboard.admin',compact('members','donations','costs'));
     }
 }

@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="title-header option-title">
-                            <h5>Member List</h5>
+                            <h5>Donations List</h5>
                             <div class="right-options">
                                 <ul>
                                     <li>
@@ -59,7 +59,7 @@
 
                                                 <td>{{ $donation->donation_amount }} taka</td>
 
-                                                <td>{{ $donation->address }} taka</td>
+                                                <td>{{ $donation->address }}</td>
 
                                                 <td>
                                                     <ul>
