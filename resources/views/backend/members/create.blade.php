@@ -17,7 +17,7 @@
                                 @endif
 
                                 <form class="theme-form theme-form-2 mega-form" action="{{ route('member.store') }}"
-                                    method="POST">
+                                    method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
@@ -201,33 +201,7 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            15(a). Monthly Donation Amount (Numbers) </label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control @error('donation_amount_numbers')
-                                            @enderror" type="text" name="donation_amount_numbers"
-                                            value="{{ old('donation_amount_numbers') }}">
-                                            @error('donation_amount_numbers')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 row align-items-center">
-                                        <label class="form-label-title col-sm-3 mb-0">
-                                            15(b). Monthly Donation Amount (Words) </label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control @error('donation_amount_words')
-                                            @enderror" type="text" name="donation_amount_words"
-                                            value="{{ old('donation_amount_words') }}">
-                                            @error('donation_amount_words')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    {{-- <div class="mb-4 row align-items-center">
-                                        <label class="form-label-title col-sm-3 mb-0">
-                                            16. Member's Photo </label>
+                                            15. Member's Photo </label>
                                         <div class="col-sm-9">
                                             <input class="form-control @error('member_photo') is-invalid @enderror" type="file" name="member_photo">
                                             <br>
@@ -237,7 +211,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div> --}}
+                                    </div>
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0"></label>

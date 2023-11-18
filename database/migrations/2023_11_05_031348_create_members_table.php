@@ -27,9 +27,7 @@ return new class extends Migration
             $table->string('profession');
             $table->string('blood_group');
             $table->string('education');
-            $table->string('donation_amount_numbers');
-            $table->string('donation_amount_words');
-            // $table->string('member_photo');
+            $table->string('member_photo');
             $table->timestamps();
         });
     }

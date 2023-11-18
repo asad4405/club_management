@@ -11,6 +11,7 @@
                         <div>
                             <div class="table-responsive">
                                 <table class="table all-package theme-table table-product">
+
                                     <thead>
                                         <tr>
                                             <th>Header</th>
@@ -19,6 +20,13 @@
                                     </thead>
 
                                     <tbody>
+                                        <tr>
+                                            <td>Member's Photo</td>
+                                            <td>
+                                                <img src="{{ asset('uploads/member_photo') }}/{{ $member->member_photo }}"
+                                                    class="img-fluid" alt="" width="100" >
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>Member ID</td>
                                             <td>#{{ $member->id }}</td>
@@ -97,17 +105,6 @@
                                             <td>Education</td>
                                             <td>{{ $member->education }}</td>
                                         </tr>
-
-                                        <tr>
-                                            <td>Monthly Donation Amount (Numbers)</td>
-                                            <td>{{ $member->donation_amount_numbers }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Monthly Donation Amount (Words)</td>
-                                            <td>{{ $member->donation_amount_words }}</td>
-                                        </tr>
-
                                     </tbody>
                                 </table>
                             </div>

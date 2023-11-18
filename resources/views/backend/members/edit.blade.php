@@ -13,7 +13,7 @@
                                 </div>
 
                                 <form class="theme-form theme-form-2 mega-form" action="{{ route('member.update',$member->id) }}"
-                                    method="POST">
+                                    method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="mb-4 row align-items-center">
@@ -167,9 +167,8 @@
                                         <label class="col-sm-3 col-form-label form-label-title">
                                             13. Blood Group</label>
                                         <div class="col-sm-9">
-                                            <select class="js-example-basic-single w-100" name="blood_group" @selected(true)>
-                                                <option value="">Select Blood Group</option>
-                                                <option value="A+">A+</option>
+                                            <select class="js-example-basic-single w-100" name="blood_group">
+                                                <option value="A+" selected>A+</option>
                                                 <option value="B+">B+</option>
                                                 <option value="AB+">AB+</option>
                                                 <option value="O+">O+</option>
@@ -198,33 +197,7 @@
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">
-                                            15(a). Monthly Donation Amount (Numbers) </label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control @error('donation_amount_numbers')
-                                            @enderror" type="text" name="donation_amount_numbers"
-                                            value="{{ $member->donation_amount_numbers }}">
-                                            @error('donation_amount_numbers')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 row align-items-center">
-                                        <label class="form-label-title col-sm-3 mb-0">
-                                            15(b). Monthly Donation Amount (Words) </label>
-                                        <div class="col-sm-9">
-                                            <input class="form-control @error('donation_amount_words')
-                                            @enderror" type="text" name="donation_amount_words"
-                                            value="{{ $member->donation_amount_words }}">
-                                            @error('donation_amount_words')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    {{-- <div class="mb-4 row align-items-center">
-                                        <label class="form-label-title col-sm-3 mb-0">
-                                            16. Member's Photo </label>
+                                            15. Member's Photo </label>
                                         <div class="col-sm-9">
                                             <input class="form-control @error('member_photo') is-invalid @enderror" type="file" name="member_photo">
                                             <br>
@@ -234,7 +207,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div> --}}
+                                    </div>
 
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0"></label>

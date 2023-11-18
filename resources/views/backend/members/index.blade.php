@@ -26,10 +26,9 @@
                                     <thead>
                                         <tr>
                                             <th>Member ID</th>
-                                            <th>Member Photo</th>
-                                            <th>Member Name</th>
-                                            <th>Father's Name</th>
-                                            <th>Mother's Name</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Phone Number</th>
                                             <th>Blood Group</th>
                                             <th>Option</th>
                                         </tr>
@@ -41,21 +40,26 @@
                                                 <td>#{{ $member->id }}</td>
                                                 <td>
                                                     <div class="table-image">
-                                                        <img src="assets/images/product/1.png" class="img-fluid"
+                                                        <img src="{{ asset('uploads/member_photo') }}/{{ $member->member_photo }}" class="img-fluid"
                                                             alt="">
                                                     </div>
                                                 </td>
 
                                                 <td>{{ $member->name }}</td>
 
-                                                <td>{{ $member->father_name }}</td>
-
-                                                <td>{{ $member->mother_name }}</td>
+                                                <td>{{ $member->phone_number }}</td>
 
                                                 <td class="text-danger">{{ $member->blood_group }}</td>
 
                                                 <td>
                                                     <ul>
+                                                        <li>
+                                                            <a href="{{ route('member.show', $member->id) }}"
+                                                                class="btn btn-sm btn-warning">
+                                                                Download
+                                                            </a>
+                                                        </li>
+
                                                         <li>
                                                             <a href="{{ route('member.show', $member->id) }}"
                                                                 class="btn btn-sm btn-primary">
