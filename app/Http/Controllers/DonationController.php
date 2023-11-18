@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\donation_club;
 use App\Models\Donation;
 use App\Models\Member;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 class DonationController extends Controller
 {
@@ -36,7 +38,7 @@ class DonationController extends Controller
         $request->validate([
             '*' => 'required',
         ]);
-        Donation::insert([
+        $donation_id = Donation::insertGetId([
             'name' => $request->name,
             'donation_reason' => $request->donation_reason,
             'donation_amount' => $request->donation_amount,
@@ -45,6 +47,8 @@ class DonationController extends Controller
             'club_member' => $request->club_member,
             'created_at' => Carbon::now(),
         ]);
+
+        Mail::to($request->email)->send(new donation_club ($donation_id,$request->name,$request->donation_reason,$request->donation_amount,$request->address,$request->email,$request->club_member));
         return back()->with('add-donation-success', 'Donation Added Successfull!');
     }
 
@@ -84,6 +88,6 @@ class DonationController extends Controller
     {
         $donations = Donation::where('id',$id)->get();
         $pdf = Pdf::loadView('pdf.donation_invoice', compact('donations'));
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('young_star_club_donation_invoice.pdf');
     }
 }

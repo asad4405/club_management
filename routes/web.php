@@ -17,15 +17,17 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['aut
 
 // members //
 Route::resource('/member', MemberController::class);
+// members invoice //
+Route::get('/download/member/invoice/{id}',[MemberController::class, 'download_member_invoice'])->name('download.member.invoice');
 
 // donations //
 Route::resource('/donation', DonationController::class);
+// donation invoice //
+Route::get('/download/donation/invoice/{id}', [DonationController::class, 'download_donation_invoice'])->name('download.donation_invoice');
 
 // costs //
 Route::resource('/cost',CostController::class);
 
-// donation invoice //
-Route::get('/download/donation/invoice/{id}', [DonationController::class, 'download_donation_invoice'])->name('download.donation_invoice');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

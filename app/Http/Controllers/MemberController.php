@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\notify_create_member;
 use App\Mail\notify_update_member;
 use App\Models\Member;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -147,7 +148,15 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
+        unlink(base_path('public/uploads/member_photo/') . $member->member_photo);
         $member->delete();
         return back();
+    }
+
+    public function download_member_invoice ($id)
+    {
+        $members = Member::where('id',$id)->get();
+        $pdf = Pdf::loadView('pdf.member_invoice', compact('members'));
+        return $pdf->download('young_star_club_member_invoice.pdf');
     }
 }

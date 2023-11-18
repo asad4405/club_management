@@ -54,7 +54,7 @@
                                                 <td>
                                                     <ul>
                                                         <li>
-                                                            <a href="{{ route('member.show', $member->id) }}"
+                                                            <a href="{{ route('download.member.invoice', $member->id) }}"
                                                                 class="btn btn-sm btn-warning">
                                                                 Download
                                                             </a>
