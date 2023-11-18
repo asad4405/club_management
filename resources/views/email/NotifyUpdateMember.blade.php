@@ -145,16 +145,12 @@
     <div class="container">
 
         <div class="receipt_header">
-            <h1>Member of <span>Young Star Club</span></h1>
+            <h1>Update of Member <span>Young Star Club</span></h1>
             <h2>Address: Chalkbeltoil,Nandina,Jamalpur <span>youngstarclub26.05.2016@gmail.com</span></h2>
         </div>
-
         <div class="receipt_body">
-
-            <div class="invoice"></div>
-            <div class="date_time_con">
-                <div class="invoice">Member ID #{{ $member_id }}</div>
-            </div>
+            <p class="text-center pt-2">Update your Information</p>
+            <div class="invoice">Member ID #{{ $member_id }}</div>
 
             <div class="items">
                 <table>
@@ -303,23 +299,6 @@
                             </td>
                         </tr>
                     </tbody>
-
-                    {{-- <tfoot>
-                        <tr>
-                        <tr>
-                            <td>
-                                <mark>
-                                    <h4>Amount</h4>
-                                </mark>
-                            </td> --}}
-                            {{-- <td>
-                                <mark>
-                                    <h4>{{ $donation->donation_amount }} taka</h4>
-                                </mark>
-                            </td> --}}
-                        {{-- </tr>
-                        </tr>
-                    </tfoot> --}}
 
                 </table>
             </div>

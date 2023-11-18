@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class notify_create_member extends Mailable
+class notify_update_member extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,6 +29,7 @@ class notify_create_member extends Mailable
     public $blood_group;
     public $education;
     public $member_photo;
+
     public function __construct($member_id,$name,$father_name,$mother_name,$phone_number,$email,$date_of_birth,$present_address,$permanent_address,$id_no,$nationality,$religion,$profession,$blood_group,$education,$member_photo)
     {
         $this->member_id = $member_id;
@@ -56,7 +56,7 @@ class notify_create_member extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome to Young Star Club',
+            subject: 'Welcome to Young Star Club - Update',
         );
     }
 
@@ -66,7 +66,7 @@ class notify_create_member extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'email.NotifyCreateMember',
+            markdown: 'email.NotifyUpdateMember',
         );
     }
 

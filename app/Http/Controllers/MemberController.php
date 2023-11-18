@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\notify_create_member;
+use App\Mail\notify_update_member;
 use App\Models\Member;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -63,7 +64,7 @@ class MemberController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        Mail::to($request->email)->send(new notify_create_member($member_id,$request->name, $request->father_name, $request->mother_name, $request->phone_number, $request->email, $request->date_of_birth, $request->present_address, $request->permanent_address, $request->id_no, $request->nationality, $request->religion, $request->profession, $request->blood_group, $request->education, $member_photo, $request->created_at));
+        Mail::to($request->email)->send(new notify_create_member($member_id, $request->name, $request->father_name, $request->mother_name, $request->phone_number, $request->email, $request->date_of_birth, $request->present_address, $request->permanent_address, $request->id_no, $request->nationality, $request->religion, $request->profession, $request->blood_group, $request->education, $member_photo));
 
         return back()->with('add-member-success', 'New Member Added Successfull! Please Check your Email');
     }
@@ -113,6 +114,9 @@ class MemberController extends Controller
             $member->member_photo = $member_photo;
             $member->created_at = Carbon::now();
             $member->save();
+
+            Mail::to($request->email)->send(new notify_update_member($member->id, $request->name, $request->father_name, $request->mother_name, $request->phone_number, $request->email, $request->date_of_birth, $request->present_address, $request->permanent_address, $request->id_no, $request->nationality, $request->religion, $request->profession, $request->blood_group, $request->education, $member_photo));
+
             return redirect('member')->with('member-update-success', 'Member Update Successfull!');
         } else {
             $member->name = $request->name;
@@ -131,7 +135,10 @@ class MemberController extends Controller
             $member->education = $request->education;
             $member->created_at = Carbon::now();
             $member->save();
-            return redirect('member')->with('member-update-success', 'Member Update Successfull!');
+
+            Mail::to($request->email)->send(new notify_update_member($member->id, $request->name, $request->father_name, $request->mother_name, $request->phone_number, $request->email, $request->date_of_birth, $request->present_address, $request->permanent_address, $request->id_no, $request->nationality, $request->religion, $request->profession, $request->blood_group, $request->education,$request));
+
+            return redirect('member')->with('member-update-success', 'Member Update Successfull! Please Check your Email');
         }
     }
 
